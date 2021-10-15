@@ -7,11 +7,13 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"), // Where to put the generated files
     filename: "bundle.js", // Name of generated file
     clean: true, // Clears the dist directory before writing new files
+    publicPath: "/", // for routing
   },
   devtool: "source-map", // Allows us to see errors with the correct file &line number
   devServer: {
     port: 3000,
     watchFiles: ["src/*/*", "public/*/*"], // was watchContentBase
+    historyApiFallback: true, // **** essential for proper routing ****
     open: true, // Opens a browser automatically
     hot: true, // Enable hot reloading
   },
